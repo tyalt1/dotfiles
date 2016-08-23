@@ -1,5 +1,12 @@
 #!/bin/bash
 
-mv ./bash_aliases ~/.bash_aliases
-mv ./i3/config ~/.i3/config
-mv ./i3status.conf ~/.i3status.conf
+function add_dotfile {
+  from="./$1";
+  to="$HOME/.$1";
+  mkdir -p `dirname $to`;
+  cp $from $to
+}
+
+add_dotfile bash_aliases
+add_dotfile i3/config
+add_dotfile i3status.conf
