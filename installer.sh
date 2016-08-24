@@ -68,7 +68,8 @@ wget -O /bin/rebar3 $REBARURL && chmod +x /bin/rebar3 #Erlang build tool
 
 #Atom
 $install atom
-apm install minimap pdf-view todo merge-conflicts script #Utility
+apm install minimap pdf-view todo script #Utility
+apm install merge-conflicts git-time-machine #git
 amp install atom-paredit linter-gcc
 apm install language-{c,clojure,python,erlang,elixir} #Lang
 apm install autocomplete-{python,erlang} atom-elixir #Autocomplete
