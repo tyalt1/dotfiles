@@ -87,6 +87,7 @@ git config --global alias.diffs 'diff --staged'
 git config --global alias.edit 'config --global --edit' #Edit config page in default editor
 git config --global alias.restart 'reset --hard' #Resets to last commit
 git config --global alias.rewind 'reset HEAD~' #Undoes last commit
+git config --global alias.root 'rev-parse --show-toplevel' #Path to Git Repo, Ex: cd $(git root)
 
 #IDEs
 $install arduino
