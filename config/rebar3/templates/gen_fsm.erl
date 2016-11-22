@@ -16,11 +16,7 @@
 -type sync_return() :: {reply, Reply::term(), StateName::atom(), state()} |
                        {reply, Reply::term(), StateName::atom(), state(), Timeout::pos_integer()} |
                        {reply, Reply::term(), StateName::atom(), state(), hibernate} |
-                       {next_state, StateName::atom(), state()} |
-                       {next_state, StateName::atom(), state(), Timeout::pos_integer()} |
-                       {next_state, StateName::atom(), state(), hibernate} |
-                       {stop, Reason::term(), Reply::term(), state()} |
-                       {stop, Reason::term(), state()}.
+                       async_return().
 
 % ----- Public -----
 -spec start_link() -> {ok, pid()}.

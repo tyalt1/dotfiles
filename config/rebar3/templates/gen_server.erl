@@ -15,11 +15,8 @@
 -type sync_return() :: {reply, Reply::term(), state()} |
                        {reply, Reply::term(), state(), Timeout::pos_integer()} |
                        {reply, Reply::term(), state(), hibernate} |
-                       {next_state, state()} |
-                       {next_state, state(), Timeout::pos_integer()} |
-                       {next_state, state(), hibernate} |
                        {stop, Reason::term(), Reply::term(), state()} |
-                       {stop, Reason::term(), state()}.
+                       async_return().
 
 % ----- Public -----
 -spec start_link() -> {ok, pid()}.
