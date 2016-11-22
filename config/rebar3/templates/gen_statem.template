@@ -1,0 +1,7 @@
+{description, "A basic gen_statem."}.
+{variables, [
+    {name, "gen_statem", "Name of the state machine, prepended with _statem suffix"}
+]}.
+
+{dir, "src"}.
+{template, "gen_statem.erl", "src/{{name}}_fsm.erl"}.
