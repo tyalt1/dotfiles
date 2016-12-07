@@ -4,4 +4,4 @@
 ]}.
 
 {dir, "src"}.
-{template, "gen_statem.erl", "src/{{name}}_fsm.erl"}.
+{template, "gen_statem.erl", "src/{{name}}_statem.erl"}.

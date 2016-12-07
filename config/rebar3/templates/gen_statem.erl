@@ -1,4 +1,4 @@
--module({{name}}_fsm).
+-module({{name}}_statem).
 -behaviour(gen_statem).
 
 -export([start_link/0]). %Public API
