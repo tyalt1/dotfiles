@@ -28,17 +28,12 @@ add-apt-repository --yes ppa:libretro/stable
 #Erlang Solution repository
 wget -O /tmp/erlang-solutions.deb $ERLANGURL && dpkg -i /tmp/erlang-solutions.deb
 
-#Spotify repository
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
-
 #Update and Upgrade
 apt-get update $flags && apt-get upgrade $flags
 apt-get autoremove $flags
 
 #Media/Games
 $install vlc
-$install spotify-client
 $install chromium-browser
 # $install retroarch retroarch-* libretro-* #Emulation
 
@@ -71,7 +66,7 @@ $install atom
 apm install minimap pdf-view todo script #Utility
 apm install merge-conflicts git-time-machine #git
 amp install atom-paredit linter-gcc
-apm install language-{c,clojure,python,erlang,elixir,haskell} #Lang
+apm install language-{c,clojure,python,erlang,elixir,haskell,elm} #Lang
 apm install autocomplete-{python,erlang} atom-elixir #Autocomplete
 apm install language-{arduino,docker,doxygen,latex,llvm} #DSL
 
