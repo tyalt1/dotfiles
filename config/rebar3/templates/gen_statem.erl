@@ -14,7 +14,7 @@
                   (Timeout::pos_integer()) |
                   {timeout, Timeout::pos_integer(), EventContent::term()} |
                   {reply, From::{pid(), term()}, Reply::term()} |
-                  {next_state, StateName::term(), StateData::state()}.
+                  {next_event, StateName::term(), StateData::state()}.
 
 -type event_type() :: {call, From::{pid(), term()}} | cast | info | timeout | internal.
 
