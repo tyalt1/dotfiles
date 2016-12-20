@@ -7,6 +7,8 @@
 -record(state, {}).
 -type state() :: #state{}.
 
+-type event_type() :: {call, From::{pid(), term()}} | cast | info | timeout | internal.
+
 -type action() :: postpone |
                   {postpone, boolean()} |
                   hibernate |
@@ -14,10 +16,7 @@
                   (Timeout::pos_integer()) |
                   {timeout, Timeout::pos_integer(), EventContent::term()} |
                   {reply, From::{pid(), term()}, Reply::term()} |
-                  {next_event, StateName::term(), StateData::state()}.
-
--type event_type() :: {call, From::{pid(), term()}} | cast | info | timeout | internal.
-
+                  {next_event, EventType::event_type(), EventData::term()}.
 
 % ----- Public -----
 -spec start_link() -> {ok, pid()}.
