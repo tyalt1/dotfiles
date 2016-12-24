@@ -41,10 +41,13 @@ $install chromium-browser
 $install build-essential #gcc, g++, make, and some libs
 $install oracle-java8-installer #Java
 $install python{,3} idle{,3} python-pip #Python
-pip install -U pip #upgrade
+pip install -U pip
 $install perl
 wget -O /bin/lein $LEINURL && chmod +x /bin/lein #Leiningen build of Clojure
 $install esl-erlang elixir #Erlang/Elixir (from Erlang Solutions)
++$install nodejs{,-legacy} npm #Node.js and npm
++npm install -g npm
++npm install -g elm
 
 #Development
 $install i3 #tiling window manager
