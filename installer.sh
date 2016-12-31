@@ -57,6 +57,7 @@ $install vim
 $install filezilla
 $install texlive #LaTeX
 $install doxygen doxygen-doc doxygen-gui #Doxygen, Docs, and Doxywizard
+$install arduino qtcreator codeblocks #IDEs
 if [ -z $(command -v docker) ]; then
 	#Install Docker if not already installed.
 	#Add user to docker group with `sudo usermod -aG docker <user-here>`
@@ -86,8 +87,3 @@ git config --global alias.edit 'config --global --edit' #Edit config page in def
 git config --global alias.restart 'reset --hard' #Resets to last commit
 git config --global alias.rewind 'reset HEAD~' #Undoes last commit
 git config --global alias.root 'rev-parse --show-toplevel' #Path to Git Repo, Ex: cd $(git root)
-
-#IDEs
-$install arduino
-$install qtcreator
-$install codeblocks
