@@ -43,6 +43,7 @@ $install oracle-java8-installer #Java
 $install python{,3} idle{,3} python-pip #Python
 pip install -U pip
 $install perl
+$install haskell-platform
 wget -O /bin/lein $LEINURL && chmod +x /bin/lein #Leiningen build of Clojure
 $install esl-erlang elixir #Erlang/Elixir (from Erlang Solutions)
 $install nodejs{,-legacy} npm #Node.js and npm
