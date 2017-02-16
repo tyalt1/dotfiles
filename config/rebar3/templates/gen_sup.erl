@@ -1,8 +1,12 @@
 -module({{name}}_sup).
 -behaviour(supervisor).
 
--export([start_link/0]). % Public API
--export([init/1]). % Callback
+-export(
+  [ start_link/0
+
+  % Callback
+  , init/1
+  ]).
 
 % ----- Public -----
 start_link() ->

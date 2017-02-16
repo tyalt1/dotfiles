@@ -1,8 +1,17 @@
 -module({{name}}_server).
 -behaviour(gen_server).
 
--export([start_link/0]). %Public API
--export([init/1, terminate/2, code_change/3, handle_call/3, handle_cast/2, handle_info/2]). %Callbacks
+-export(
+  [ start_link/0
+
+  %Callbacks
+  , init/1
+  , terminate/2
+  , code_change/3
+  , handle_call/3
+  , handle_cast/2
+  , handle_info/2
+  ]).
 
 -record(state, {}).
 -type state() :: #state{}.

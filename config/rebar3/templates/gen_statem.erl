@@ -1,8 +1,16 @@
 -module({{name}}_statem).
 -behaviour(gen_statem).
 
--export([start_link/0]). %Public API
--export([init/1, terminate/3, code_change/4, callback_mode/0, handle_event/4]). %Callbacks
+-export(
+  [ start_link/0
+
+  %Callbacks
+  , init/1
+  , terminate/3
+  , code_change/4
+  , callback_mode/0
+  , handle_event/4
+  ]).
 
 -record(state, {}).
 -type state() :: #state{}.

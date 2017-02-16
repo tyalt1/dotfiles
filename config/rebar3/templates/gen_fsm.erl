@@ -1,9 +1,19 @@
 -module({{name}}_fsm).
 -behaviour(gen_fsm).
 
--export([start_link/0]). %Public API
--export([init/1, terminate/3, code_change/4, handle_sync_event/4, handle_event/3, handle_info/3]). %Callbacks
-% -export([StateName/2, StateName/3]).
+-export(
+  [ start_link/0
+
+  %Callbacks
+  , init/1
+  , terminate/3
+  , code_change/4
+  % , StateName/2
+  % , StateName/3
+  , handle_sync_event/4
+  , handle_event/3
+  , handle_info/3
+  ]). %Callbacks
 
 -record(state, {}).
 -type state() :: #state{}.
