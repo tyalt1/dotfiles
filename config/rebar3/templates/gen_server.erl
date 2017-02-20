@@ -16,9 +16,9 @@
 -record(state, {}).
 -type state() :: #state{}.
 
--type async_return() :: {next_state, state()} |
-                        {next_state, state(), Timeout::pos_integer()} |
-                        {next_state, state(), hibernate} |
+-type async_return() :: {noreply, state()} |
+                        {noreply, state(), Timeout::pos_integer()} |
+                        {noreply, state(), hibernate} |
                         {stop, Reason::term(), state()}.
 
 -type sync_return() :: {reply, Reply::term(), state()} |
