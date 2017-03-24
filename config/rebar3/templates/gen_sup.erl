@@ -8,6 +8,10 @@
   , init/1
   ]).
 
+% Helper macro for declaring children of supervisor.
+% Example: ?CHILD(module_name, [], worker)
+-define(CHILD(I, Args, Type), {I, {I, start_link, Args}, permanent, 5000, Type, [I]}).
+
 % ----- Public -----
 start_link() ->
   supervisor:start_link({local, ?MODULE}, ?MODULE, []).
