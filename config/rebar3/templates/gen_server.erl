@@ -29,10 +29,7 @@
 
 % ----- Public -----
 -spec start_link() -> {ok, pid()}.
-start_link() ->
-  gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
-
-% ----- Private -----
+start_link() -> gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 % ----- Callbacks -----
 -spec init(term()) ->
@@ -61,3 +58,5 @@ handle_cast(_Request, State) ->
 -spec handle_info(timeout | term(), state()) -> async_return().
 handle_info(_Info, State) ->
   {noreply, State}.
+
+% ----- Private -----

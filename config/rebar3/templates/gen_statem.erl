@@ -12,8 +12,10 @@
   , handle_event/4
   ]).
 
--record(state, {}).
--type state() :: #state{}.
+-record(data, {}).
+
+-type data() :: #data{}.
+-type state() :: atom().
 
 -type event_type() :: {call, From::{pid(), term()}} | cast | info | timeout | internal.
 
@@ -28,34 +30,32 @@
 
 % ----- Public -----
 -spec start_link() -> {ok, pid()}.
-start_link() ->
-  gen_statem:start_link({local, ?MODULE}, ?MODULE, [], []).
-
-% ----- Private -----
+start_link() -> gen_statem:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 % ----- Callbacks -----
 -spec init(term()) ->
-  {ok, StateName::atom(), state()} |
-  {ok, StateName::atom(), state(), Actions::[action()] | action()} |
+  {ok, Name::state(), data()} |
+  {ok, Name::state(), data(), Actions::[action()] | action()} |
   {stop, Reason::term()}.
 init([]) ->
-  StateName = init_state,
-  {ok, StateName, #state{}}.
+  Name = init_state,
+  {ok, Name, #data{}}.
 
--spec terminate(normal|shutdown|{shutdown,term()}|term(), StateName::term(), state()) -> term().
-terminate(_Reason, _StateName, _StateData) ->
+-spec terminate(normal|shutdown|{shutdown,term()}|term(), Name::state(), data()) -> term().
+terminate(_Reason, _Name, _Data) ->
   ok.
 
--spec code_change(term()|{down, term()}, StateName::term(), state(), term()) -> {ok, term(), state()}.
-code_change(_OldVsn, StateName, StateData, _Extra) ->
-  {ok, StateName, StateData}.
+-spec code_change(term()|{down, term()}, Name::state(), data(), term()) -> {ok, term(), data()}.
+code_change(_OldVsn, Name, Data, _Extra) ->
+  {ok, Name, Data}.
 
 -spec callback_mode() -> state_functions | handle_event_function.
-callback_mode() ->
-  handle_event_function.
+callback_mode() -> handle_event_function.
 
--spec handle_event(EventType::event_type(), EventContent::term(), StateName::atom(), state()) ->
-  {next_state, StateName::term(), StateData::state()} |
-  {next_state, StateName::term(), StateData::state(), Actions::[action()] | action()}.
-handle_event(_EventType, _EventContent, StateName, StateData) ->
-  {next_state, StateName, StateData}.
+-spec handle_event(EventType::event_type(), EventContent::term(), Name::state(), data()) ->
+  {next_state, Name::state(), Data::data()} |
+  {next_state, Name::state(), Data::data(), Actions::[action()] | action()}.
+handle_event(_EventType, _EventContent, Name, Data) ->
+  {next_state, Name, Data}.
+
+% ----- Private -----

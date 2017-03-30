@@ -33,8 +33,6 @@
 start_link() ->
   gen_fsm:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-% ----- Private -----
-
 % ----- Callbacks -----
 -spec init(term()) ->
   {ok, StateName::atom(), state()} |
@@ -71,3 +69,5 @@ handle_event(_Event, StateName, StateData) ->
 -spec handle_info(timeout | term(), StateName::atom(), state()) -> async_return().
 handle_info(_Info, StateName, StateData) ->
   {next_state, StateName, StateData}.
+
+% ----- Private -----
