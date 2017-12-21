@@ -5,6 +5,7 @@ FROM debian
 RUN apt-get update && \
   apt-get install --yes \
   build-essential sudo tree wget vim rsync \
+  texlive-latex-base \
   python python3 python-pip \
   erlang elixir
 
