@@ -37,7 +37,8 @@ $install chromium-browser
 $install build-essential #gcc, g++, make, and some libs
 $install python{,3} idle{,3} python-pip #Python
 pip install --upgrade pip
-$install erlang elixir #Erlang/Elixir (from Erlang Solutions)
+$install erlang elixir #Erlang/Elixir
+$install haskell-platform
 
 # Development
 $install i3 #tiling window manager
