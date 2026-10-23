@@ -41,6 +41,7 @@ $install git
 git config --global user.name 'Tyler Alterio'
 git config --global user.email 'tyalt1@gmail.com'
 git config --global push.default simple
+git config --global init.defaultBranch main
 git config --global alias.ls 'log --decorate --oneline --graph -15' #Alternative to git log
 git config --global alias.s 'status --short' #Alternative to git status
 git config --global alias.diffs 'diff --staged' #Alternative to git diff for staged files
