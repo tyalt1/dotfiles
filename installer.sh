@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # assert you have apt-get
-if [ -z $(command -v apt-get) ]; then
-	echo 'Error: Could not find apt-get.' >& 2 # Print error message into stderr
+if [ -z $(command -v apt) ]; then
+	echo 'Error: Could not find apt' >& 2 # Print error message into stderr
 	exit 1
 fi
 
@@ -12,18 +12,16 @@ if [ $(id -u) != 0 ]; then
 	exit 1
 fi
 
-flags='--yes --quiet'
-install="apt-get install $flags"
-
 # update and upgrade
-apt-get update $flags && apt-get upgrade $flags
-apt-get autoremove $flags
+apt update --yes --quiet
+apt upgrade --yes --quiet
+apt autoremove --yes --quiet
 
 # install dependencies
-$install build-essential bash gpg curl wget gawk
+apt install --yes --quiet build-essential bash gpg curl wget gawk
 
 # install Go
-$install golang
+apt install --yes --quiet golang
 
 # install Docker
 if [ -z $(command -v docker) ]; then
@@ -46,18 +44,19 @@ git config --global alias.ls 'log --decorate --oneline --graph -15' #Alternative
 git config --global alias.s 'status --short' #Alternative to git status
 git config --global alias.diffs 'diff --staged' #Alternative to git diff for staged files
 
-# install asdf
+# install asdf (https://asdf-vm.com/guide/getting-started.html)
 go install github.com/asdf-vm/asdf/cmd/asdf@v0.20.2
 for plugin in python nodejs erlang elixir; do
 	asdf plugin add $plugin
 	# asdf install $plugin latest
 done
 
-# install opencode
+# install opencode (https://opencode.ai/)
 if [ -z $(command -v opencode) ]; then
 	curl -fsSL https://opencode.ai/v2/install | bash
 fi
 
+# install hermes agent (https://hermes-agent.nousresearch.com/)
 if [ -z $(command -v hermes) ]; then
 	curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 fi
