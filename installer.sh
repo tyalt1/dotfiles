@@ -52,3 +52,12 @@ for plugin in python nodejs erlang elixir; do
 	asdf plugin add $plugin
 	# asdf install $plugin latest
 done
+
+# install opencode
+if [ -z $(command -v opencode) ]; then
+	curl -fsSL https://opencode.ai/v2/install | bash
+fi
+
+if [ -z $(command -v hermes) ]; then
+	curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+fi
